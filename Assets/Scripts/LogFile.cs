@@ -12,7 +12,6 @@ public static class LogFile
     private static readonly string TIMESTAMP = Timestamp();
     private static readonly Dictionary<string, StreamWriter> repository = new();
     private static LogFileSchedueler scheduler;
-    private static RecordingTrackerScriptableObject recordingTrackerScriptableObject;
 
     public static void Log(string name, string message)
     {
@@ -26,7 +25,7 @@ public static class LogFile
     private static void Create(string name)
     {
         Debug.Log($"[{name}]");
-        string path = Path.Join(Application.persistentDataPath, name + recordingTrackerScriptableObject.recordingNumber.ToString(), EXTENSION);
+        string path = Path.Join(Application.persistentDataPath, name + EXTENSION);
         Debug.Log($"[{name}] {path}");
         var dir = Directory.GetParent(path);
         Directory.CreateDirectory(dir.FullName);

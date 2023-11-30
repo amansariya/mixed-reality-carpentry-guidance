@@ -7,6 +7,7 @@ public class HandAnimationController : MonoBehaviour
 {
     public OVRCustomSkeleton leftHandSkeleton;
     public OVRCustomSkeleton rightHandSkeleton;
+    [SerializeField] private RecordingTrackerScriptableObject recordingTrackerScriptableObject;
 
     private List<string> csvLines;
 
@@ -18,15 +19,22 @@ public class HandAnimationController : MonoBehaviour
     private IEnumerator AnimateHandsCoroutine()
     {
         // Load CSV data
-        csvLines = LoadCSV("path/to/your/csvfile.csv");
+        Debug.Log(Path.Join(Application.persistentDataPath, "HandTrackingData " + recordingTrackerScriptableObject.recordingNumber + ".csv"));
+        csvLines = LoadCSV(Path.Join(Application.persistentDataPath, "HandTrackingData " + recordingTrackerScriptableObject.recordingNumber + ".csv"));
 
         foreach (var line in csvLines)
         {
             List<float> values = ParseCSVLine(line);
-            AnimateHand(leftHandSkeleton, values.GetRange(1, 175));
-            AnimateHand(rightHandSkeleton, values.GetRange(176, 175));
+            if (values.Count <= 1)
+            {
+                continue;
+            }
 
-            yield return null; // Wait for the next frame
+            Debug.Log(values.Count);
+            AnimateHand(leftHandSkeleton, values.GetRange(1, 168));
+            AnimateHand(rightHandSkeleton, values.GetRange(169, 168));
+
+            yield return new WaitForSeconds(0.02f); // Wait for the next frame
         }
     }
 
@@ -58,8 +66,8 @@ public class HandAnimationController : MonoBehaviour
             {
                 Vector3 position = new Vector3(boneData[dataIndex], boneData[dataIndex + 1], boneData[dataIndex + 2]);
                 Quaternion rotation = new Quaternion(boneData[dataIndex + 3], boneData[dataIndex + 4], boneData[dataIndex + 5], boneData[dataIndex + 6]);
-                bone.localPosition = position;
-                bone.localRotation = rotation;
+                bone.position = position;
+                bone.rotation = rotation;
                 dataIndex += 7;
             }
         }

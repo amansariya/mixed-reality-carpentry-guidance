@@ -307,6 +307,7 @@ MonoBehaviour:
   - {fileID: 210553257}
   skeletonLeft: {fileID: 0}
   skeletonRight: {fileID: 0}
+  recordingTrackerScriptableObject: {fileID: 11400000, guid: 31d0f3209f9c1fa479e720ae6e2eba3e, type: 2}
 --- !u!4 &524262159
 Transform:
   m_ObjectHideFlags: 0
@@ -565,6 +566,10 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: _trackingOriginType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

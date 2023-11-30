@@ -12,11 +12,12 @@ public class TrackingHands : MonoBehaviour
     [SerializeField] private OVRHand[] hands;
     [SerializeField] private OVRSkeleton skeletonLeft;
     [SerializeField] private OVRSkeleton skeletonRight;
+    [SerializeField] private RecordingTrackerScriptableObject recordingTrackerScriptableObject;
 
     // Add all the relevant bone IDs
     private readonly OVRSkeleton.BoneId[] handJoints = new OVRSkeleton.BoneId[]
     {
-        OVRSkeleton.BoneId.Hand_Start,
+        //OVRSkeleton.BoneId.Hand_Start,
         OVRSkeleton.BoneId.Hand_WristRoot,
         OVRSkeleton.BoneId.Hand_ForearmStub,
         OVRSkeleton.BoneId.Hand_Thumb0,
@@ -48,6 +49,7 @@ public class TrackingHands : MonoBehaviour
     {
         StartCoroutine(OnOVRHandInitialized());
         Debug.Log(Application.persistentDataPath);
+        recordingTrackerScriptableObject.recordingNumber += 1;
     }
 
     // Assigning the fingertipPrefab to the fingerTips
@@ -94,7 +96,7 @@ public class TrackingHands : MonoBehaviour
             }
         }
         //Debug.Log("CHECK " + logMessage);
-        LogFile.Log("HandTrackingData", logMessage);
+        LogFile.Log("HandTrackingData " + recordingTrackerScriptableObject.recordingNumber, logMessage);
     }
 
     private string FormatTransform(Transform transform)

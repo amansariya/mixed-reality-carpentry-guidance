@@ -6,12 +6,13 @@ using UnityEngine;
 
 public static class LogFile
 {
-    private const string EXTENSION = ".txt";
+    private const string EXTENSION = ".csv";
     private const string TIMESTAMP_FORMAT = "yyyyMMddHHmmssffff";
 
     private static readonly string TIMESTAMP = Timestamp();
     private static readonly Dictionary<string, StreamWriter> repository = new();
     private static LogFileSchedueler scheduler;
+    private static RecordingTrackerScriptableObject recordingTrackerScriptableObject;
 
     public static void Log(string name, string message)
     {
@@ -25,7 +26,7 @@ public static class LogFile
     private static void Create(string name)
     {
         Debug.Log($"[{name}]");
-        string path = Path.Join(Application.persistentDataPath, TIMESTAMP, name + EXTENSION);
+        string path = Path.Join(Application.persistentDataPath, name + recordingTrackerScriptableObject.recordingNumber.ToString(), EXTENSION);
         Debug.Log($"[{name}] {path}");
         var dir = Directory.GetParent(path);
         Directory.CreateDirectory(dir.FullName);

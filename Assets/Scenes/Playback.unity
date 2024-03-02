@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 189537465}
   - component: {fileID: 189537464}
   - component: {fileID: 189537466}
+  - component: {fileID: 189537467}
   m_Layer: 0
   m_Name: TestHandTextureManipulator
   m_TagString: Untagged
@@ -280,14 +281,61 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189537463}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42c78064740dcc442b54c65498db5ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fingerTipUV: {x: 0.29, y: 0.35}
   targetColor: {r: 1, g: 0, b: 0, a: 1}
-  handToManipulate: {fileID: 334047030}
+  handToManipulate: {fileID: 712491174}
+--- !u!114 &189537467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189537463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acc32b735c993b4580ef6b813f88920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
+  handToManipulate: {fileID: 712491174}
+  maxPressure: 1000
+  diffusionRate: 0.5
+  threshold: 0.1
+  pressureGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0, g: 0.009654045, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!4 &195369355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4154509707602826, guid: e201a24a09e942042b93390d0444d728, type: 3}
@@ -679,6 +727,18 @@ PrefabInstance:
       propertyPath: _customBones_V2.Array.data[23]
       value: 
       objectReference: {fileID: 1637623970}
+    - target: {fileID: 137292928833085638, guid: e201a24a09e942042b93390d0444d728, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137292928833085638, guid: e201a24a09e942042b93390d0444d728, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af8e483633989814a9e80f6de5ec0fe1, type: 2}
+    - target: {fileID: 137292928833085638, guid: e201a24a09e942042b93390d0444d728, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: af8e483633989814a9e80f6de5ec0fe1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -799,6 +859,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &712491174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1085198246029792, guid: e201a24a09e942042b93390d0444d728, type: 3}
+  m_PrefabInstance: {fileID: 681588358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &731604199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4437140624287864, guid: c6a74181d4000004887343fb87b3c53a, type: 3}

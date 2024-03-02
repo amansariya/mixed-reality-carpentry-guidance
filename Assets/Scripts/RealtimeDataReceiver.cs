@@ -24,18 +24,22 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
         }
     }
 
+
     public void OnEvent(EventData photonEvent)
     {
-        //byte eventCode = photonEvent.Code;
-        //if (eventCode == 1) // Replace YOUR_CUSTOM_EVENT_CODE with your actual event code
-        //{
-        //    float receivedValue = (float)photonEvent.CustomData;
-        //    Debug.Log("Received float value: " + receivedValue);
-        //    // Handle the received float value here
-        //}
+        byte eventCode = photonEvent.Code;
+        if (eventCode == 1) // Replace YOUR_CUSTOM_EVENT_CODE with your actual event code
+        {
+ 
+            //float receivedValue = (float)photonEvent.CustomData;
+            object[] data = (object[])photonEvent.CustomData; // Correctly cast to object[]
+            float receivedValue = (float)data[0];
+            Debug.Log("Received float value: " + receivedValue);
+            // Handle the received float value here
+        }
         //float receivedValue = (float)photonEvent.CustomData;
-        object[] data = (object[])photonEvent.CustomData; // Correctly cast to object[]
-        float receivedValue = (float)data[0]; // Then access the float value
-        Debug.Log("Received float value: " + receivedValue);
+        //object[] data = (object[])photonEvent.CustomData; // Correctly cast to object[]
+        //float receivedValue = (float)data[0]; // Then access the float value
+        //Debug.Log("Received float value: " + receivedValue);
     }
 }

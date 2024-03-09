@@ -303,9 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
   handToManipulate: {fileID: 712491174}
-  maxPressure: 1000
-  diffusionRate: 0.5
-  threshold: 0.1
+  maxPressure: 1
   pressureGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
@@ -324,7 +322,7 @@ MonoBehaviour:
     ctime5: 0
     ctime6: 0
     ctime7: 0
-    atime0: 0
+    atime0: 21843
     atime1: 65535
     atime2: 0
     atime3: 0
@@ -336,6 +334,7 @@ MonoBehaviour:
     m_ColorSpace: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  spreadFactor: 15
 --- !u!4 &195369355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4154509707602826, guid: e201a24a09e942042b93390d0444d728, type: 3}

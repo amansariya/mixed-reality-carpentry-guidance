@@ -29,7 +29,7 @@ public class PressureVisualizer : MonoBehaviour
             int x = Mathf.FloorToInt(sensor.centreCoordinate.x * newTexture.width);
             int y = Mathf.FloorToInt(sensor.centreCoordinate.y * newTexture.height);
 
-            Color sensorColor = pressureGradient.Evaluate(sensor.pressure / maxPressure);
+            Color sensorColor = pressureGradient.Evaluate(sensor.userPressure / maxPressure);
 
             FloodFill(newTexture, x, y, sensorColor);
         }

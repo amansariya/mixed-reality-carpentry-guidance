@@ -8,7 +8,8 @@ public class GlobCentreValuesScriptableObject : ScriptableObject
     {
         public string sensorLocation;
         public Vector2 centreCoordinate;
-        public float pressure;
+        public float idealPressure;
+        public float userPressure;
     }
 
     [SerializeField]

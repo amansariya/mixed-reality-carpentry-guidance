@@ -45,11 +45,17 @@ public class RealtimeNetworkManager : MonoBehaviour, IConnectionCallbacks//, IMa
     {
         Debug.Log("Connected to MasterServer. Now can join or create a room.");
         loadBalancingClient.OpJoinOrCreateRoom(enterRoomParams);
+        Debug.Log("Joined room");
     }
 
     public void OnJoinedRoom()
     {
         Debug.Log("Joined a room. Now connected to the GameServer.");
+    }
+
+    public void OnCreateRoom()
+    {
+        Debug.Log("Created a room.");
     }
 
     public void OnDisconnected(DisconnectCause cause)
@@ -67,6 +73,21 @@ public class RealtimeNetworkManager : MonoBehaviour, IConnectionCallbacks//, IMa
 
     public void OnCustomAuthenticationFailed(string debugMessage)
     {
+    }
+
+    public void OnJoinRoomFailed(short returnCode, string message)
+    {
+        Debug.LogError($"OnJoinRoomFailed: {message}");
+    }
+
+    public void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.LogError($"OnCreateRoomFailed: {message}");
+    }
+
+    public void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.LogError($"OnJoinRandomFailed: {message}");
     }
 
     void OnApplicationQuit()

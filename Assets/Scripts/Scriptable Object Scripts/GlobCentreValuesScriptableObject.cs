@@ -14,4 +14,7 @@ public class GlobCentreValuesScriptableObject : ScriptableObject
 
     [SerializeField]
     public GlobCentreValues[] sensors;
+
+    [SerializeField]
+    public float maxPressureValue;
 }

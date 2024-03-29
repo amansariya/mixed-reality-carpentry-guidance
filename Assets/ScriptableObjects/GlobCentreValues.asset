@@ -15,61 +15,82 @@ MonoBehaviour:
   sensors:
   - sensorLocation: thumb_tip
     centreCoordinate: {x: 0.943, y: 0.624}
-    pressure: 1
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: thumb_promximal
     centreCoordinate: {x: 0.877, y: 0.625}
-    pressure: 0.32
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: thumb_metacarpal
     centreCoordinate: {x: 0.805, y: 0.597}
-    pressure: 0.68
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: thumb_base
     centreCoordinate: {x: 0.773, y: 0.537}
-    pressure: 0.54
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: index_tip
     centreCoordinate: {x: 0.827, y: 0.917}
-    pressure: 1
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: index_proximal
     centreCoordinate: {x: 0.79, y: 0.798}
-    pressure: 1
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: index_metacarpal
     centreCoordinate: {x: 0.764, y: 0.715}
-    pressure: 0.34
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: middle_tip
     centreCoordinate: {x: 0.707, y: 0.962}
-    pressure: 0.87
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: middle_proximal
     centreCoordinate: {x: 0.695, y: 0.804}
-    pressure: 0.25
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: middle_metacarpal
     centreCoordinate: {x: 0.7, y: 0.736}
-    pressure: 0.5
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: ring_tip
     centreCoordinate: {x: 0.505, y: 0.892}
-    pressure: 0.5
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: ring_proximal
     centreCoordinate: {x: 0.601, y: 0.757}
-    pressure: 0.15
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: ring_metacarpal
     centreCoordinate: {x: 0.639, y: 0}
-    pressure: 1
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: pinky_tip
     centreCoordinate: {x: 0.46, y: 0.726}
-    pressure: 1
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: pinky_proximal
     centreCoordinate: {x: 0.547, y: 0.681}
-    pressure: 0
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: pinky_metacarpal
     centreCoordinate: {x: 0.589, y: 0.648}
-    pressure: 1
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: palm_left
     centreCoordinate: {x: 0.624, y: 0.575}
-    pressure: 0.3
+    idealPressure: 0.25
+    userPressure: 0.5
   - sensorLocation: palm_centre
     centreCoordinate: {x: 0.7, y: 0.617}
-    pressure: 0.45
+    idealPressure: 1
+    userPressure: 0
   - sensorLocation: palm_bottom_left
     centreCoordinate: {x: 0.708, y: 0.507}
-    pressure: 0.95
+    idealPressure: 0
+    userPressure: 0
   - sensorLocation: palm_bottom
     centreCoordinate: {x: 0.645, y: 0.506}
-    pressure: 0.76
+    idealPressure: 0
+    userPressure: 0
+  maxPressureValue: 1

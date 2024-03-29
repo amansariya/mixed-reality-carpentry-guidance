@@ -4,7 +4,9 @@ public class SmoothFollowFOV : MonoBehaviour
 {
     [SerializeField]
     private Transform playerCamera;
-    public OVRSkeleton rightHandSkeleton;
+    //public OVRSkeleton rightHandSkeleton;
+    [SerializeField]
+    private Transform rightHandSkeleton;
     [SerializeField]
     private float smoothTime = 0.3F;
     [SerializeField]
@@ -17,10 +19,10 @@ public class SmoothFollowFOV : MonoBehaviour
         
         //if (!GetComponentInChildren<SkinnedMeshRenderer>().isVisible)
         //    return;
-        Vector3 targetPosition = playerCamera.TransformPoint(offset);
+        Vector3 targetPosition = rightHandSkeleton.TransformPoint(offset);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 
-        // Optionally, make the object always face the camera.
+        // make the object always face the camera
         transform.LookAt(playerCamera);
     }
 }

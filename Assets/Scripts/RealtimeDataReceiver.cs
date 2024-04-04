@@ -57,7 +57,7 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
                 int numFloats = bytes.Length / sizeof(float);
                 float[] floatArray = new float[numFloats];
                 Buffer.BlockCopy(bytes, 0, floatArray, 0, bytes.Length);
-                //Debug.Log(floatArray.Length);
+                Debug.Log("floatArray.Length: " + floatArray.Length.ToString());
                 //Debug.Log(globCentreValuesScriptableObject.sensors.Length);
                 //for (int i = 0; i < floatArray.Length; i++)
                 //{
@@ -65,11 +65,11 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
                 //    globCentreValuesScriptableObject.sensors[i].userPressure = floatArray[i];
                 //}
 
-                //for (int i = 0; i < floatArray.Length; i++)
-                //{
-                //    Debug.Log(i);
-                //    Debug.Log(floatArray[i]);
-                //}
+                for (int i = 0; i < floatArray.Length; i++)
+                {
+                    Debug.Log("Index: " + i);
+                    Debug.Log("Value: " + floatArray[i]);
+                }
 
                 // Use floatArray as needed
                 //foreach (float value in floatArray)

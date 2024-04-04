@@ -50,7 +50,7 @@ public class ChatGPTSample : MonoBehaviour
         responseMessage.TextContent = chatResult.Choices[0].Message.TextContent;
         Debug.Log(string.Format("{0}: {1}", responseMessage.Role, responseMessage.TextContent));
 
-        messages.Add(responseMessage);
+        //messages.Add(responseMessage);
     }
 
 }

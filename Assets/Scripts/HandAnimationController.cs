@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HandAnimationController : MonoBehaviour
 {
-    public OVRCustomSkeleton leftHandSkeleton;
+    //public OVRCustomSkeleton leftHandSkeleton;
     public OVRCustomSkeleton rightHandSkeleton;
     [SerializeField] private RecordingTrackerScriptableObject recordingTrackerScriptableObject;
 
@@ -30,8 +30,8 @@ public class HandAnimationController : MonoBehaviour
                 continue;
             }
 
-            Debug.Log(values.Count);
-            AnimateHand(leftHandSkeleton, values.GetRange(1, 168));
+            //Debug.Log(values.Count);
+            //AnimateHand(leftHandSkeleton, values.GetRange(1, 168));
             AnimateHand(rightHandSkeleton, values.GetRange(169, 168));
 
             yield return new WaitForSeconds(0.02f); // Wait for the next frame

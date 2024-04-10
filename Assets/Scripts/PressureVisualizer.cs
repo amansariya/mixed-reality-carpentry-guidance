@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,46 +17,61 @@ public class PressureVisualizer : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(ColorHands());
+    }
+
+    private IEnumerator ColorHands()
+    {
         // IF THIS CODE IS SHIFTED TO UPDATE (OR COROUTINE), THE TEXTURE NEEDS TO ME CLEARED WITH EACH TIME IT IS INVOKED
         SkinnedMeshRenderer skinnedMeshRenderer = handToManipulate.GetComponent<SkinnedMeshRenderer>();
         Material material = skinnedMeshRenderer.materials[0];
         Texture2D originalTexture = material.mainTexture as Texture2D;
-        Texture2D newTexture = new Texture2D(originalTexture.width, originalTexture.height, originalTexture.format, false);
-        Graphics.CopyTexture(originalTexture, newTexture);
-        newTexture.Apply();
 
-        foreach (var sensor in sensorDataObject.sensors)
+        while(true)
         {
-            // Convert UV coordinates to pixel coordinates
-            int x = Mathf.FloorToInt(sensor.centreCoordinate.x * newTexture.width);
-            int y = Mathf.FloorToInt(sensor.centreCoordinate.y * newTexture.height);
-            Color sensorColor;
-            float difference = sensor.userPressure - sensor.idealPressure;
-            Debug.Log("difference: " + difference);
-            
-
-            if (difference > 0)
+            Texture2D newTexture = new Texture2D(originalTexture.width, originalTexture.height, originalTexture.format, false);
+            Graphics.CopyTexture(originalTexture, newTexture);
+            newTexture.Apply();
+            Debug.Log("Texture updated!");
+            //originalTexture.Apply();
+            //skinnedMeshRenderer.material.mainTexture = originalTexture;
+            foreach (var sensor in sensorDataObject.sensors)
             {
-                sensorColor = pressureGradientBlue.Evaluate(difference / sensorDataObject.maxPressureValue);
-            }
-            else if (difference < 0)
-            {
-                Debug.Log("difference enter");
-                sensorColor = pressureGradientRed.Evaluate(Mathf.Abs(difference) / sensorDataObject.maxPressureValue);
-            }
-            else
-            {
-                continue;
-            }
-            Debug.Log("difference: " + sensorColor.ToString());
+                // Convert UV coordinates to pixel coordinates
+                int x = Mathf.FloorToInt(sensor.centreCoordinate.x * newTexture.width);
+                int y = Mathf.FloorToInt(sensor.centreCoordinate.y * newTexture.height);
+                Color sensorColor;
+                float difference = sensor.userPressure - sensor.idealPressure;
+                //Debug.Log("difference: " + difference);
 
-            //Color sensorColor = pressureGradient.Evaluate(sensor.userPressure / maxPressure);
 
-            FloodFill(newTexture, x, y, sensorColor);
+                if (difference > 0)
+                {
+                    sensorColor = pressureGradientBlue.Evaluate(difference / sensorDataObject.maxPressureValue);
+                }
+                else if (difference < 0)
+                {
+                    //Debug.Log("difference enter");
+                    sensorColor = pressureGradientRed.Evaluate(Mathf.Abs(difference) / sensorDataObject.maxPressureValue);
+                }
+                else
+                {
+                    continue;
+                }
+                //Debug.Log("difference: " + sensorColor.ToString());
+
+                //Color sensorColor = pressureGradient.Evaluate(sensor.userPressure / maxPressure);
+
+                FloodFill(newTexture, x, y, sensorColor);
+                yield return new WaitForEndOfFrame();
+            }
+
+            newTexture.Apply();
+            skinnedMeshRenderer.material.mainTexture = newTexture;
+            yield return new WaitForSeconds(5);
+            //Object.Destroy(newTexture);
         }
-
-        newTexture.Apply();
-        skinnedMeshRenderer.material.mainTexture = newTexture;
+        
     }
     private void FloodFill(Texture2D texture, int startX, int startY, Color targetColor)
     {

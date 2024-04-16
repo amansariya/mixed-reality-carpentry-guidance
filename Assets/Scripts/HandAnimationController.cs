@@ -19,11 +19,15 @@ public class HandAnimationController : MonoBehaviour
     private IEnumerator AnimateHandsCoroutine()
     {
         // Load CSV data
-        Debug.Log(Path.Join(Application.persistentDataPath, "HandTrackingData " + recordingTrackerScriptableObject.recordingNumber + ".csv"));
-        csvLines = LoadCSV(Path.Join(Application.persistentDataPath, "HandTrackingData " + recordingTrackerScriptableObject.recordingNumber + ".csv"));
+        //Debug.Log("Application.persistentDataPath" + Application.persistentDataPath);
+        //Debug.Log(Path.Join(Application.persistentDataPath, "HandTrackingData " + recordingTrackerScriptableObject.recordingNumber + ".csv"));
+        Debug.Log("DataPathScript:" + Path.Join(Application.persistentDataPath, "HandTrackingData.csv"));
+        //csvLines = LoadCSV(Path.Join(Application.persistentDataPath, "HandTrackingData " + recordingTrackerScriptableObject.recordingNumber + ".csv"));
+        csvLines = LoadCSV(Path.Join(Application.persistentDataPath, "HandTrackingData.csv"));
 
         foreach (var line in csvLines)
         {
+            Debug.Log("linelineline: " + line);
             List<float> values = ParseCSVLine(line);
             if (values.Count <= 1)
             {

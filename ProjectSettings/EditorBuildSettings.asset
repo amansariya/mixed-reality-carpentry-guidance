@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Playback.unity
     guid: 81ec6710a9c378a4bab8910f1f76a01d
+  - enabled: 0
+    path: Assets/Scenes/Recording.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7c854ccaad529d24aa3c754d64b46507, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 776378e3287f09f43899b300ab6b5b8e, type: 2}

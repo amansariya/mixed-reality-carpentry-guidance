@@ -101,7 +101,7 @@ public class TrackingHands : MonoBehaviour
 
     private string FormatTransform(Transform transform)
     {
-        return $"{transform.position.x},{transform.position.y},{transform.position.z}," +
-               $"{transform.rotation.x},{transform.rotation.y},{transform.rotation.z},{transform.rotation.w}";
+        return $"{transform.localPosition.x},{transform.localPosition.y},{transform.localPosition.z}," +
+               $"{transform.localRotation.x},{transform.localRotation.y},{transform.localRotation.z},{transform.localRotation.w}";
     }
 }

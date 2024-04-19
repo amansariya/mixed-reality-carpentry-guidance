@@ -12,11 +12,11 @@ public class SmoothFollowFOV : MonoBehaviour
     [SerializeField]
     private Vector3 velocity = Vector3.zero;
     [SerializeField]
-    private Vector3 offsetAnimatedHand;
-    [SerializeField]
+    //private Vector3 offsetAnimatedHand;
+    //[SerializeField]
     private Vector3 offsetPressureHand;
-    [SerializeField]
-    private Transform AnimatedHand;
+    //[SerializeField]
+    //private Transform AnimatedHand;
     [SerializeField]
     private Transform PressureHand;
 
@@ -37,13 +37,13 @@ public class SmoothFollowFOV : MonoBehaviour
     void Update()
     {
         Vector3 pressureHandTargetPosition = rightHandSkeleton.TransformPoint(offsetPressureHand);
-        Vector3 animatedHandTargetPosition = rightHandSkeleton.TransformPoint(offsetAnimatedHand);
+        //Vector3 animatedHandTargetPosition = rightHandSkeleton.TransformPoint(offsetAnimatedHand);
 
         PressureHand.transform.position = Vector3.SmoothDamp(PressureHand.transform.position, pressureHandTargetPosition, ref velocity, smoothTime);
-        AnimatedHand.transform.position = Vector3.SmoothDamp(AnimatedHand.transform.position, animatedHandTargetPosition, ref velocity, smoothTime);
+        //AnimatedHand.transform.position = Vector3.SmoothDamp(AnimatedHand.transform.position, animatedHandTargetPosition, ref velocity, smoothTime);
 
         // make the object always face the camera
         PressureHand.transform.LookAt(playerCamera);
-        AnimatedHand.transform.LookAt(playerCamera);
+        //AnimatedHand.transform.LookAt(playerCamera);
     }
 }

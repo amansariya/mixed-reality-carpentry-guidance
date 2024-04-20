@@ -54,13 +54,13 @@ public class HandAnimationController : MonoBehaviour
 
                 yield return new WaitForSeconds(0.02f); // Wait for the next frame
             }
-            StartCoroutine(FlashBlueAndFade());
+            StartCoroutine(FlashGreenAndFade());
         }
     }
 
-    IEnumerator FlashBlueAndFade()
+    IEnumerator FlashGreenAndFade()
     {
-        // Change to blue color instantly
+        // Change to green color instantly
         rightHandMaterial.color = Color.green;
 
         // Fade out the color and alpha
@@ -70,7 +70,7 @@ public class HandAnimationController : MonoBehaviour
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration; // Normalize time to [0, 1]
-            rightHandMaterial.color = Color.Lerp(Color.blue, originalColor, t);
+            rightHandMaterial.color = Color.Lerp(Color.green, originalColor, t);
             rightHandMaterial.color = new Color(rightHandMaterial.color.r, rightHandMaterial.color.g, rightHandMaterial.color.b, 1 - t);
 
             elapsedTime += Time.deltaTime;

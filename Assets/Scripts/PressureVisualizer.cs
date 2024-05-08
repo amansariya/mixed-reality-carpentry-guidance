@@ -32,7 +32,7 @@ public class PressureVisualizer : MonoBehaviour
             Texture2D newTexture = new Texture2D(originalTexture.width, originalTexture.height, originalTexture.format, false);
             Graphics.CopyTexture(originalTexture, newTexture);
             newTexture.Apply();
-            Debug.Log("Texture updated!");
+            //Debug.Log("Texture updated!");
             //originalTexture.Apply();
             //skinnedMeshRenderer.material.mainTexture = originalTexture;
             foreach (var sensor in sensorDataObject.sensors)
@@ -68,7 +68,7 @@ public class PressureVisualizer : MonoBehaviour
 
             newTexture.Apply();
             skinnedMeshRenderer.material.mainTexture = newTexture;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
             //Object.Destroy(newTexture);
         }
         

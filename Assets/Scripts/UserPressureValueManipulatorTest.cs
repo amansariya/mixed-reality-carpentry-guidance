@@ -72,7 +72,7 @@ public class UserPressureValueManipulatorTest : MonoBehaviour
                 double randomNumber = random.NextDouble() * (max - min) + min;
                 sensorDataObject.sensors[i].userPressure = (float)randomNumber;
             }
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

@@ -10,11 +10,11 @@ public class UserMatchingCheck : MonoBehaviour
     [SerializeField]
     private float THRESHOLD;
 
-    private AudioSource audioSource;
+    private AudioSource successSoundAudioSource;
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        successSoundAudioSource = GetComponent<AudioSource>();
         StartCoroutine(MatchingChecker());
     }
 
@@ -38,9 +38,9 @@ public class UserMatchingCheck : MonoBehaviour
             if (isWithinThreshold == true)
             {
                 // Play sound
-                if (!audioSource.isPlaying)
+                if (!successSoundAudioSource.isPlaying)
                 {
-                    audioSource.Play();
+                    successSoundAudioSource.Play();
                 }
                 // Write success
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressureVisualizer : MonoBehaviour
+public class PressureVisualizerHigh : MonoBehaviour
 {
     [SerializeField]
     private GlobCentreValuesScriptableObject sensorDataObject;

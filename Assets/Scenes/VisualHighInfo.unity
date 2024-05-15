@@ -1799,8 +1799,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Your task is to start using the object with the given pressure distribution.\n\n      
-    - Increase the pressure\n        - Decrease the pressure\n\nAs you try to emulate
-    this hand pressure, your goal is to make the hand completely white."
+    - Increase the pressure at these points\n        - Decrease the pressure at these
+    points\n\nAs you try to emulate this hand pressure, your goal is to make the
+    hand completely white."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3082,6 +3083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   APIString: 
+  systemMessage: 
 --- !u!4 &1871831216
 Transform:
   m_ObjectHideFlags: 0
@@ -3617,6 +3619,52 @@ PrefabInstance:
       addedObject: {fileID: 1880446117}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6a74181d4000004887343fb87b3c53a, type: 3}
+--- !u!1 &2134725740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2134725742}
+  - component: {fileID: 2134725741}
+  m_Layer: 0
+  m_Name: Pressure Logging
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2134725741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134725740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4684e888a68dee747875ce4ce3edc744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
+  recordingObject: {fileID: 11400000, guid: 31d0f3209f9c1fa479e720ae6e2eba3e, type: 2}
+--- !u!4 &2134725742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134725740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.28939617, y: 0.19203007, z: 0.55075496}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2146774645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4636070314650120, guid: e201a24a09e942042b93390d0444d728, type: 3}

@@ -25,9 +25,9 @@ public static class LogFile
     private static void Create(string name)
     {
         Debug.Log($"[{name}]");
-        //string path = Path.Join(Application.persistentDataPath, name + EXTENSION);
-        string path = Path.Join(Application.persistentDataPath, "HandTrackingData.csv");
-        Debug.Log("DataPathLogFile:" + Path.Join(Application.persistentDataPath, "HandTrackingData.csv"));
+        string path = Path.Join(Application.persistentDataPath, name + EXTENSION);
+        //string path = Path.Join(Application.persistentDataPath, "HandTrackingData.csv");
+        Debug.Log("DataPathLogFile:" + Path.Join(Application.persistentDataPath, name + EXTENSION));
         Debug.Log($"[{name}] {path}");
         var dir = Directory.GetParent(path);
         Directory.CreateDirectory(dir.FullName);

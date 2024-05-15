@@ -10,10 +10,13 @@ public class UserMatchingCheck : MonoBehaviour
     [SerializeField]
     private float THRESHOLD;
 
+    private float startTime;
+
     private AudioSource successSoundAudioSource;
-    // Start is called before the first frame update
+
     void Start()
     {
+        startTime = Time.time;
         successSoundAudioSource = GetComponent<AudioSource>();
         StartCoroutine(MatchingChecker());
     }
@@ -22,7 +25,7 @@ public class UserMatchingCheck : MonoBehaviour
     {
         while (true)
         {
-            bool isWithinThreshold = false;
+            bool isWithinThreshold = true;
             foreach (var sensor in sensorDataObject.sensors)
             {
                 if (Mathf.Abs(sensor.idealPressure - sensor.userPressure) < THRESHOLD)
@@ -37,6 +40,13 @@ public class UserMatchingCheck : MonoBehaviour
 
             if (isWithinThreshold == true)
             {
+                // Log time
+                float endTime = Time.time;
+                float totalTime = endTime - startTime;
+                LogDuration(THRESHOLD, startTime, endTime, totalTime);
+                Debug.Log("Logged");
+
+
                 // Play sound
                 if (!successSoundAudioSource.isPlaying)
                 {
@@ -50,5 +60,10 @@ public class UserMatchingCheck : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void LogDuration(float threshold, float startTime, float endTime, float totalTime)
+    {
+        LogFile.Log($"DurationFile {LogFile.Timestamp()}", $"{THRESHOLD}, {startTime}, {endTime}, {totalTime}");
     }
 }

@@ -7,7 +7,7 @@ public class LoggingPressure : MonoBehaviour
     [SerializeField]
     GlobCentreValuesScriptableObject sensorDataObject;
     [SerializeField]
-    RecordingTrackerScriptableObject recordingObject;
+    RecordingTrackerScriptableObject recordingTracker;
 
     // Update is called once per frame
     void Update()
@@ -18,11 +18,11 @@ public class LoggingPressure : MonoBehaviour
             logMessage += sensor.userPressure + ",";
         }
         //Debug.Log("CHECK " + logMessage);
-        LogFile.Log($"PressureLogged {recordingObject.recordingNumber}", logMessage);
+        LogFile.Log($"PressureLogged {recordingTracker.recordingNumber}", logMessage);
     }
 
     private void OnDestroy()
     {
-        recordingObject.recordingNumber += 1;
+        recordingTracker.recordingNumber += 1;
     }
 }

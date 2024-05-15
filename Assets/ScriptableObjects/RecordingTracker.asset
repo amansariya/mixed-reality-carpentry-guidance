@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cf534a78921f84ca760519a10fb76d, type: 3}
   m_Name: RecordingTracker
   m_EditorClassIdentifier: 
-  recordingNumber: 3
+  recordingNumber: 1

@@ -8,6 +8,9 @@ public class UserMatchingCheck : MonoBehaviour
     private GlobCentreValuesScriptableObject sensorDataObject;
 
     [SerializeField]
+    private RecordingTrackerScriptableObject recordingTracker;
+
+    [SerializeField]
     private float THRESHOLD;
 
     private float startTime;
@@ -64,6 +67,6 @@ public class UserMatchingCheck : MonoBehaviour
 
     private void LogDuration(float threshold, float startTime, float endTime, float totalTime)
     {
-        LogFile.Log($"DurationFile {LogFile.Timestamp()}", $"{THRESHOLD}, {startTime}, {endTime}, {totalTime}");
+        LogFile.Log($"DurationFile {recordingTracker.recordingNumber}", $"{THRESHOLD}, {startTime}, {endTime}, {totalTime}");
     }
 }

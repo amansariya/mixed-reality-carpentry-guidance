@@ -2001,6 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
+  recordingTracker: {fileID: 0}
   THRESHOLD: 0.2
 --- !u!4 &804191418
 Transform:
@@ -3649,7 +3650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
-  recordingObject: {fileID: 11400000, guid: 31d0f3209f9c1fa479e720ae6e2eba3e, type: 2}
+  recordingTracker: {fileID: 11400000, guid: 31d0f3209f9c1fa479e720ae6e2eba3e, type: 2}
 --- !u!4 &2134725742
 Transform:
   m_ObjectHideFlags: 0

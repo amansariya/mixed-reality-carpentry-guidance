@@ -76,11 +76,11 @@ public class PressureVisualizerMed : MonoBehaviour
                     float averageDifference = totalDifference / validSensorCount;
                     if (averageDifference > 0)
                     {
-                        regionColor = pressureGradientBlue.Evaluate(averageDifference / sensorDataObject.maxPressureValue);
+                        regionColor = pressureGradientBlue.Evaluate(averageDifference / sensorDataObject.maxPressureValue) * 2.0f;
                     }
                     else
                     {
-                        regionColor = pressureGradientRed.Evaluate(Mathf.Abs(averageDifference) / sensorDataObject.maxPressureValue);
+                        regionColor = pressureGradientRed.Evaluate(Mathf.Abs(averageDifference) / sensorDataObject.maxPressureValue) * 2.0f;
                     }
 
                     foreach (var sensorIndex in sensorIndices)

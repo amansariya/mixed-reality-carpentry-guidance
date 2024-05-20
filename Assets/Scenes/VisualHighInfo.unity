@@ -1450,7 +1450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &679843763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
-  recordingTracker: {fileID: 0}
+  recordingTracker: {fileID: 11400000, guid: 31d0f3209f9c1fa479e720ae6e2eba3e, type: 2}
   THRESHOLD: 0.2
 --- !u!4 &804191418
 Transform:
@@ -3110,7 +3110,7 @@ GameObject:
   - component: {fileID: 1871831216}
   - component: {fileID: 1871831215}
   m_Layer: 0
-  m_Name: ChatGPT Test
+  m_Name: ChatGPT Chat Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realtimeNetworkManager: {fileID: 2065773779}
-  globCentreValuesScriptableObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
+  sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
 --- !u!114 &2065773779
 MonoBehaviour:
   m_ObjectHideFlags: 0

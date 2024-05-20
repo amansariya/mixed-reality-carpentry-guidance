@@ -25,7 +25,7 @@ public class RealtimeNetworkManager : MonoBehaviour, IConnectionCallbacks//, IMa
         loadBalancingClient.AppVersion = "1.0";
         loadBalancingClient.ConnectToNameServer();
         loadBalancingClient.ConnectToRegionMaster("usw");
-        enterRoomParams.RoomName = "TestXRPressureRoom";
+        enterRoomParams.RoomName = "XRPressureRoom";
         //loadBalancingClient.OpJoinOrCreateRoom(enterRoomParams);
     }
 

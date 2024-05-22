@@ -18,7 +18,7 @@ public class LoggingPressure : MonoBehaviour
             logMessage += sensor.userPressure + ",";
         }
         //Debug.Log("CHECK " + logMessage);
-        //LogFile.Log($"PressureLogged {recordingTracker.recordingNumber}", logMessage);
+        LogFile.Log($"PressureLogged {recordingTracker.recordingNumber}", logMessage);
     }
 
     private void OnDestroy()

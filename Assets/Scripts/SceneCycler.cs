@@ -29,23 +29,23 @@ public class SceneCycler : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.N))
-        {
-            GoToNextScene();
-        }
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            GoToPreviousScene();
-        }
-        
-        //if (OVRInput.GetDown(OVRInput.Button.One)) // A button
+        //if(Input.GetKeyDown(KeyCode.N))
         //{
         //    GoToNextScene();
         //}
-        //if (OVRInput.GetDown(OVRInput.Button.Two)) // B button
+        //if(Input.GetKeyDown(KeyCode.P))
         //{
         //    GoToPreviousScene();
         //}
+
+        if (OVRInput.GetDown(OVRInput.Button.One)) // A button
+        {
+            GoToNextScene();
+        }
+        if (OVRInput.GetDown(OVRInput.Button.Two)) // B button
+        {
+            GoToPreviousScene();
+        }
     }
 
     void GoToNextScene()

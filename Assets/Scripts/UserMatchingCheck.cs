@@ -67,6 +67,6 @@ public class UserMatchingCheck : MonoBehaviour
 
     private void LogDuration(float threshold, float startTime, float endTime, float totalTime)
     {
-        LogFile.Log($"DurationFile {recordingTracker.recordingNumber}", $"{THRESHOLD}, {startTime}, {endTime}, {totalTime}");
+        LogFile.Log($"DurationFile {recordingTracker.recordingNumber}", $"{THRESHOLD}, {startTime}, {endTime}, {totalTime}, {LogFile.Timestamp()}");
     }
 }

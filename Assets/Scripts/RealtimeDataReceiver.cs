@@ -3,6 +3,7 @@ using ExitGames.Client.Photon;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 public class DataReceiver : MonoBehaviour, IOnEventCallback
 {
@@ -74,7 +75,7 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
     {
         if (photonEvent.Code == 1)
         { // This must match the eventCode used in C++
-            Debug.Log("EventCode matched");
+            //Debug.Log("EventCode matched");
 
 
             object receivedData = photonEvent.CustomData;
@@ -99,15 +100,15 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
                         normalizedValues[i] = (1023f - value) / 1023f;
                     }
 
-                    string temp = "";
+                    //string temp = "";
 
-                    for (int i = 0; i < 20; i++)
-                    {
-                        temp += normalizedValues[i].ToString() + " ";
-                    }
+                    //for (int i = 0; i < 20; i++)
+                    //{
+                    //    temp += normalizedValues[i].ToString() + " ";
+                    //}
 
 
-                    Debug.Log(temp);
+                    //Debug.Log(temp);
 
                     for (int i = 0; i < valueStrings.Length; i++)
                     {
@@ -115,9 +116,46 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
                     }
                 }
             }
+        }
 
+        if (photonEvent.Code == 2)
+        {
+            object receivedData = photonEvent.CustomData;
+            //Debug.Log(receivedData.GetType());
+            Debug.Log("photonEvent.CustomData: " + photonEvent.CustomData.ToString());
 
+            String idealPressureValues = receivedData.ToString();
+            Debug.Log("idealPressureValues" + idealPressureValues);
 
+            string[] parts = idealPressureValues.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            Debug.Log("Size " + parts.Length.ToString());
+            foreach (string part in parts)
+            {
+                Debug.Log("part " + part);
+            }
+            
+
+            if (parts.Length == 20)
+            {
+                Debug.Log("Received 20 strings");
+            }
+            else
+            {
+                Debug.Log("Not received 20 strings");
+            }
+
+            for (int i = 0; i < parts.Length; i++)
+            {
+                if (i == 0)
+                {
+                    string prefix = "(System.String)pressures=(System.String)";
+                    float floatValue1 = float.Parse(parts[i].Substring(prefix.Length));
+                    sensorDataObject.sensors[i].idealPressure = floatValue1;
+                    continue;
+                }
+                float floatValue = float.Parse(parts[i]);
+                sensorDataObject.sensors[i].idealPressure = floatValue;
+            }
         }
     }
 

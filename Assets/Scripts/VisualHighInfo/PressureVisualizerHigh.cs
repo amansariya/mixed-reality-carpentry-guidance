@@ -68,7 +68,7 @@ public class PressureVisualizerHigh : MonoBehaviour
 
             newTexture.Apply();
             skinnedMeshRenderer.material.mainTexture = newTexture;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             //Object.Destroy(newTexture);
         }
         

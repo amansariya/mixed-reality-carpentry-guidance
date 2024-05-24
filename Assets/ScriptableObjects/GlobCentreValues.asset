@@ -15,79 +15,79 @@ MonoBehaviour:
   sensors:
   - sensorLocation: thumb_tip
     centreCoordinate: {x: 0.943, y: 0.624}
-    idealPressure: 0.540567
-    userPressure: 0
+    idealPressure: 0.68328446
+    userPressure: 0.069403715
   - sensorLocation: thumb_promximal
     centreCoordinate: {x: 0.877, y: 0.625}
-    idealPressure: 0.49951124
-    userPressure: 0
+    idealPressure: 0.35190615
+    userPressure: 0.10557185
   - sensorLocation: thumb_metacarpal
     centreCoordinate: {x: 0.805, y: 0.597}
-    idealPressure: 0.45747802
-    userPressure: 0
+    idealPressure: 0.2678397
+    userPressure: 0.011730205
   - sensorLocation: thumb_base
     centreCoordinate: {x: 0.773, y: 0.537}
-    idealPressure: 0.32355815
-    userPressure: 0
+    idealPressure: 0.09090909
+    userPressure: 0.13000977
   - sensorLocation: index_tip
     centreCoordinate: {x: 0.827, y: 0.917}
-    idealPressure: 0.56304985
-    userPressure: 0
+    idealPressure: 0.7106549
+    userPressure: 0.05767351
   - sensorLocation: index_proximal
     centreCoordinate: {x: 0.79, y: 0.798}
-    idealPressure: 0.5777126
-    userPressure: 0
+    idealPressure: 0.7106549
+    userPressure: 0.0342131
   - sensorLocation: index_metacarpal
     centreCoordinate: {x: 0.764, y: 0.715}
-    idealPressure: 0.10557185
+    idealPressure: 0.2561095
     userPressure: 0
   - sensorLocation: middle_tip
     centreCoordinate: {x: 0.707, y: 0.962}
-    idealPressure: 0.7986315
-    userPressure: 0
+    idealPressure: 0.7126099
+    userPressure: 0.28836754
   - sensorLocation: middle_proximal
     centreCoordinate: {x: 0.695, y: 0.804}
-    idealPressure: 0.80742913
-    userPressure: 0
+    idealPressure: 0.7399805
+    userPressure: 0.045943305
   - sensorLocation: middle_metacarpal
     centreCoordinate: {x: 0.7, y: 0.736}
-    idealPressure: 0.5650049
+    idealPressure: 0.4995112
     userPressure: 0
   - sensorLocation: ring_tip
     centreCoordinate: {x: 0.505, y: 0.892}
-    idealPressure: 0.61388075
-    userPressure: 0
+    idealPressure: 0.4868035
+    userPressure: 0.0019550342
   - sensorLocation: ring_proximal
     centreCoordinate: {x: 0.601, y: 0.757}
-    idealPressure: 0.22971652
-    userPressure: 0
+    idealPressure: 0.05376344
+    userPressure: 0.009775171
   - sensorLocation: ring_metacarpal
     centreCoordinate: {x: 0.639, y: 0.702}
-    idealPressure: 0.3831867
+    idealPressure: 0.21212122
     userPressure: 0
   - sensorLocation: pinky_tip
     centreCoordinate: {x: 0.46, y: 0.726}
-    idealPressure: 0.051808406
-    userPressure: 0
+    idealPressure: 0.001955034
+    userPressure: 0.07331378
   - sensorLocation: pinky_proximal
     centreCoordinate: {x: 0.547, y: 0.681}
-    idealPressure: 0.032258064
-    userPressure: 0
+    idealPressure: 0.04887585
+    userPressure: 0.019550342
   - sensorLocation: pinky_metacarpal
     centreCoordinate: {x: 0.589, y: 0.648}
-    idealPressure: 0.3939394
+    idealPressure: 0.05474096
     userPressure: 0
   - sensorLocation: palm_left
     centreCoordinate: {x: 0.624, y: 0.575}
-    idealPressure: 0.24731183
-    userPressure: 0
+    idealPressure: 0.3049853
+    userPressure: 0.13489737
   - sensorLocation: palm_centre
     centreCoordinate: {x: 0.7, y: 0.617}
-    idealPressure: 0.001955034
-    userPressure: 0
+    idealPressure: 0.000977517
+    userPressure: 0.0009775171
   - sensorLocation: palm_bottom_left
     centreCoordinate: {x: 0.664, y: 0.514}
-    idealPressure: 0.000977517
+    idealPressure: 0.008797654
     userPressure: 0
   - sensorLocation: palm_bottom
     centreCoordinate: {x: 0.716, y: 0.549}

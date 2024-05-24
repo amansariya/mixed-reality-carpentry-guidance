@@ -49,16 +49,14 @@ public class UserMatchingCheck : MonoBehaviour
                 LogDuration(THRESHOLD, startTime, endTime, totalTime);
                 Debug.Log("Logged");
 
-
                 // Play sound
-                if (!successSoundAudioSource.isPlaying)
-                {
-                    successSoundAudioSource.Play();
-                }
+                //if (!successSoundAudioSource.isPlaying)
+                //{
+                //    successSoundAudioSource.Play();
+                //}
                 // Write success
 
-
-                break;
+                yield return new WaitForSeconds(5);
             }
 
             yield return null;
@@ -67,6 +65,6 @@ public class UserMatchingCheck : MonoBehaviour
 
     private void LogDuration(float threshold, float startTime, float endTime, float totalTime)
     {
-        LogFile.Log($"DurationFile {recordingTracker.recordingNumber}", $"{THRESHOLD}, {startTime}, {endTime}, {totalTime}, {LogFile.Timestamp()}");
+        LogFile.Log($"DurationFile {recordingTracker.recordingNumber}", $"{threshold}, {startTime}, {endTime}, {totalTime}, {LogFile.Timestamp()}");
     }
 }

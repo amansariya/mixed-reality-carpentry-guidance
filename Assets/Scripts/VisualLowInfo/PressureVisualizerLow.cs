@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PressureVisualizerLow : MonoBehaviour
@@ -22,24 +23,25 @@ public class PressureVisualizerLow : MonoBehaviour
         SkinnedMeshRenderer skinnedMeshRenderer = handToManipulate.GetComponent<SkinnedMeshRenderer>();
         Material material = skinnedMeshRenderer.materials[0];
         Texture2D originalTexture = material.mainTexture as Texture2D;
+        Texture2D newTexture;
 
-        while(true)
+        while (true)
         {
-            Texture2D newTexture = new Texture2D(originalTexture.width, originalTexture.height, originalTexture.format, false);
+            newTexture = new Texture2D(originalTexture.width, originalTexture.height, originalTexture.format, false);
             Graphics.CopyTexture(originalTexture, newTexture);
             newTexture.Apply();
 
-            float averageDifference = CalculateAverageDifference();
+            //float averageDifference = CalculateAverageDifference();
+            List<float> differenceArray = CalculateMaxDifference();
             Color sensorColor;
 
-            if (averageDifference > 0)
+            if (differenceArray[1] > 0)
             {
-                sensorColor = pressureGradientBlue.Evaluate(averageDifference / sensorDataObject.maxPressureValue);
+                sensorColor = pressureGradientBlue.Evaluate((differenceArray[0] / sensorDataObject.maxPressureValue) * 2.0f);
             }
-            else if (averageDifference < 0)
+            else if (differenceArray[1] < 0)
             {
-                //Debug.Log("difference enter");
-                sensorColor = pressureGradientRed.Evaluate(Mathf.Abs(averageDifference) / sensorDataObject.maxPressureValue);
+                sensorColor = pressureGradientRed.Evaluate((differenceArray[0] / sensorDataObject.maxPressureValue) * 2.0f);
             }
             else
             {
@@ -50,9 +52,28 @@ public class PressureVisualizerLow : MonoBehaviour
 
             newTexture.Apply();
             skinnedMeshRenderer.material.mainTexture = newTexture;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
         }
-        
+
+    }
+
+    private List<float> CalculateMaxDifference()
+    {
+        float maximumDifferenceMod = 0;
+        float maxDifference = 0;
+        float difference;
+        foreach (var sensor in sensorDataObject.sensors)
+        {
+            difference = sensor.userPressure - sensor.idealPressure;
+            if (maximumDifferenceMod < Mathf.Abs(difference))
+            {
+                maximumDifferenceMod = Mathf.Max(maximumDifferenceMod, Mathf.Abs(difference));
+                maxDifference = difference;
+            }
+            
+        }
+
+        return new List<float> { maximumDifferenceMod, maxDifference };
     }
 
     private float CalculateAverageDifference()
@@ -63,6 +84,7 @@ public class PressureVisualizerLow : MonoBehaviour
             float difference = sensor.userPressure - sensor.idealPressure;
             average += difference;
         }
+
         return average / sensorDataObject.sensors.Length;
     }
 

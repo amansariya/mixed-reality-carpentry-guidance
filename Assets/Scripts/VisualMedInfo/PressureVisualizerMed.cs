@@ -57,8 +57,11 @@ public class PressureVisualizerMed : MonoBehaviour
                 string regionName = region.Key;
                 List<int> sensorIndices = region.Value;
                 Color regionColor;
-                float totalDifference = 0;
-                int validSensorCount = 0;
+                //float maxDifference = 0;
+                //float totalDifference = 0;
+                //int validSensorCount = 0;
+                float maxDifferenceMod = 0;
+                float maxDifference = 0;
 
                 foreach (var sensorIndex in sensorIndices)
                 {
@@ -66,39 +69,40 @@ public class PressureVisualizerMed : MonoBehaviour
                     {
                         var sensor = sensorDataObject.sensors[sensorIndex];
                         float difference = sensor.userPressure - sensor.idealPressure;
-                        totalDifference += difference;
-                        validSensorCount++;
+                        if (Mathf.Abs(difference) > maxDifferenceMod)
+                        {
+                            maxDifferenceMod = Mathf.Abs(difference);
+                            maxDifference = difference;
+                        }
                     }
                 }
 
-                if (validSensorCount > 0)
+                if (maxDifference > 0)
                 {
-                    float averageDifference = totalDifference / validSensorCount;
-                    if (averageDifference > 0)
-                    {
-                        regionColor = pressureGradientBlue.Evaluate(averageDifference / sensorDataObject.maxPressureValue) * 2.0f;
-                    }
-                    else
-                    {
-                        regionColor = pressureGradientRed.Evaluate(Mathf.Abs(averageDifference) / sensorDataObject.maxPressureValue) * 2.0f;
-                    }
-
-                    foreach (var sensorIndex in sensorIndices)
-                    {
-                        Vector2 regionCentre = GetRegionCentre(sensorIndex);
-                        int x = Mathf.FloorToInt(regionCentre.x * newTexture.width);
-                        int y = Mathf.FloorToInt(regionCentre.y * newTexture.height);
-                        FloodFill(newTexture, x, y, regionColor);
-                    }
+                    regionColor = pressureGradientBlue.Evaluate((maxDifference / sensorDataObject.maxPressureValue) * 2.0f);
                 }
+                else
+                {
+                    regionColor = pressureGradientRed.Evaluate((Mathf.Abs(maxDifference) / sensorDataObject.maxPressureValue) * 2.0f);
+                }
+
+                foreach (var sensorIndex in sensorIndices)
+                {
+                    Vector2 regionCentre = GetRegionCentre(sensorIndex);
+                    int x = Mathf.FloorToInt(regionCentre.x * newTexture.width);
+                    int y = Mathf.FloorToInt(regionCentre.y * newTexture.height);
+                    FloodFill(newTexture, x, y, regionColor);
+                }
+                
                 yield return new WaitForEndOfFrame();
             }
 
             newTexture.Apply();
             skinnedMeshRenderer.material.mainTexture = newTexture;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
         }
     }
+
 
     private Vector2 GetRegionCentre(int index)
     {

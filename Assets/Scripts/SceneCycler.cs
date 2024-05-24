@@ -29,11 +29,11 @@ public class SceneCycler : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.N))
+        //if (Input.GetKeyDown(KeyCode.N))
         //{
         //    GoToNextScene();
         //}
-        //if(Input.GetKeyDown(KeyCode.P))
+        //if (Input.GetKeyDown(KeyCode.P))
         //{
         //    GoToPreviousScene();
         //}

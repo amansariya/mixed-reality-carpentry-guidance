@@ -14,6 +14,9 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
     [SerializeField]
     private GlobCentreValuesScriptableObject sensorDataObject;
 
+    [SerializeField]
+    private RecordingTrackerScriptableObject recordingTracker;
+
     Dictionary<int, int> channelMapping = new Dictionary<int, int>
     {
         { 0, 15 },  // Pinky Metacarpal
@@ -122,17 +125,17 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
         {
             object receivedData = photonEvent.CustomData;
             //Debug.Log(receivedData.GetType());
-            Debug.Log("photonEvent.CustomData: " + photonEvent.CustomData.ToString());
+            //Debug.Log("photonEvent.CustomData: " + photonEvent.CustomData.ToString());
 
             String idealPressureValues = receivedData.ToString();
-            Debug.Log("idealPressureValues" + idealPressureValues);
+            //Debug.Log("idealPressureValues" + idealPressureValues);
 
             string[] parts = idealPressureValues.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-            Debug.Log("Size " + parts.Length.ToString());
-            foreach (string part in parts)
-            {
-                Debug.Log("part " + part);
-            }
+            //Debug.Log("Size " + parts.Length.ToString());
+            //foreach (string part in parts)
+            //{
+            //    Debug.Log("part " + part);
+            //}
             
 
             if (parts.Length == 20)
@@ -156,6 +159,13 @@ public class DataReceiver : MonoBehaviour, IOnEventCallback
                 float floatValue = float.Parse(parts[i]);
                 sensorDataObject.sensors[i].idealPressure = floatValue;
             }
+
+            string logMessage = "";
+            foreach (var sensor in sensorDataObject.sensors)
+            {
+                logMessage = sensor.idealPressure.ToString() + ", ";
+            }
+            LogFile.Log($"IdealPressure {recordingTracker.recordingNumber}", logMessage);
         }
     }
 

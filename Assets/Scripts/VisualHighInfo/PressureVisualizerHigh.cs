@@ -26,10 +26,11 @@ public class PressureVisualizerHigh : MonoBehaviour
         SkinnedMeshRenderer skinnedMeshRenderer = handToManipulate.GetComponent<SkinnedMeshRenderer>();
         Material material = skinnedMeshRenderer.materials[0];
         Texture2D originalTexture = material.mainTexture as Texture2D;
+        Texture2D newTexture;
 
-        while(true)
+        while (true)
         {
-            Texture2D newTexture = new Texture2D(originalTexture.width, originalTexture.height, originalTexture.format, false);
+            newTexture = new Texture2D(originalTexture.width, originalTexture.height, originalTexture.format, false);
             Graphics.CopyTexture(originalTexture, newTexture);
             newTexture.Apply();
             //Debug.Log("Texture updated!");
@@ -47,12 +48,12 @@ public class PressureVisualizerHigh : MonoBehaviour
 
                 if (difference > 0)
                 {
-                    sensorColor = pressureGradientBlue.Evaluate(difference / sensorDataObject.maxPressureValue);
+                    sensorColor = pressureGradientBlue.Evaluate((difference / sensorDataObject.maxPressureValue) * 2.0f);
                 }
                 else if (difference < 0)
                 {
                     //Debug.Log("difference enter");
-                    sensorColor = pressureGradientRed.Evaluate(Mathf.Abs(difference) / sensorDataObject.maxPressureValue);
+                    sensorColor = pressureGradientRed.Evaluate((Mathf.Abs(difference) / sensorDataObject.maxPressureValue) * 2.0f);
                 }
                 else
                 {

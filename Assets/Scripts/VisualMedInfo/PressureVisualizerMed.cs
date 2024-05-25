@@ -27,16 +27,25 @@ public class PressureVisualizerMed : MonoBehaviour
     {
         regionSensorIndices = new Dictionary<string, List<int>>
         {
-            { "thumb_region", new List<int> { 0, 1, 2, 3 } },
+        //    { "thumb_region", new List<int> { 0, 1, 2, 3 } },
+        //    { "index_region", new List<int> { 4, 5 } },
+        //    { "middle_region", new List<int> { 7, 8 } },
+        //    { "ring_region", new List<int> { 10, 11 } },
+        //    { "pinky_region", new List<int> { 13, 14 } },
+        //    { "metacarpal_region", new List<int> { 6, 9, 12, 15 } },
+        //    { "palm_left", new List<int> { 16 } },
+        //    { "palm_bottom", new List<int> { 17 } },
+        //    { "palm_bottom_left", new List<int> { 18 } },
+        //    { "palm_centre", new List<int> { 19 } }
+        //};
+
+            { "thumb_region", new List<int> { 0, 1 } },
             { "index_region", new List<int> { 4, 5 } },
             { "middle_region", new List<int> { 7, 8 } },
             { "ring_region", new List<int> { 10, 11 } },
             { "pinky_region", new List<int> { 13, 14 } },
-            { "metacarpal_region", new List<int> { 6, 9, 12, 15 } },
-            { "palm_left", new List<int> { 16 } },
-            { "palm_bottom", new List<int> { 17 } },
-            { "palm_bottom_left", new List<int> { 18 } },
-            { "palm_centre", new List<int> { 19 } }
+            { "palm_left", new List<int> { 15, 16, 18 } },
+            { "palm", new List<int> { 2, 3, 6, 9, 12, 17, 19 } }
         };
     }
 
@@ -79,11 +88,11 @@ public class PressureVisualizerMed : MonoBehaviour
 
                 if (maxDifference > 0)
                 {
-                    regionColor = pressureGradientBlue.Evaluate((maxDifference / sensorDataObject.maxPressureValue) * 2.0f);
+                    regionColor = pressureGradientBlue.Evaluate((maxDifference / sensorDataObject.maxPressureValue));
                 }
                 else
                 {
-                    regionColor = pressureGradientRed.Evaluate((Mathf.Abs(maxDifference) / sensorDataObject.maxPressureValue) * 2.0f);
+                    regionColor = pressureGradientRed.Evaluate((Mathf.Abs(maxDifference) / sensorDataObject.maxPressureValue));
                 }
 
                 foreach (var sensorIndex in sensorIndices)

@@ -88,11 +88,11 @@ public class PressureVisualizerMed : MonoBehaviour
 
                 if (maxDifference > 0)
                 {
-                    regionColor = pressureGradientBlue.Evaluate((maxDifference / sensorDataObject.maxPressureValue));
+                    regionColor = pressureGradientBlue.Evaluate((maxDifference / sensorDataObject.maxPressureValue) * 2.0f);
                 }
                 else
                 {
-                    regionColor = pressureGradientRed.Evaluate((Mathf.Abs(maxDifference) / sensorDataObject.maxPressureValue));
+                    regionColor = pressureGradientRed.Evaluate((Mathf.Abs(maxDifference) / sensorDataObject.maxPressureValue) * 2.0f);
                 }
 
                 foreach (var sensorIndex in sensorIndices)

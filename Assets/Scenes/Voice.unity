@@ -841,6 +841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuidingHand
       objectReference: {fileID: 0}
+    - target: {fileID: 1581749144712736, guid: e201a24a09e942042b93390d0444d728, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4314817122003250, guid: e201a24a09e942042b93390d0444d728, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.002
@@ -2553,7 +2557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensorDataObject: {fileID: 11400000, guid: 102960f2dea3e7443b9e3eccedaf6e50, type: 2}
-  recordingTracker: {fileID: 0}
+  recordingTracker: {fileID: 11400000, guid: 31d0f3209f9c1fa479e720ae6e2eba3e, type: 2}
   THRESHOLD: 0.2
 --- !u!4 &804191418
 Transform:
@@ -2577,7 +2581,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804191416}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 89ff96bfc11555040b993acdfdf00d02, type: 3}
@@ -3373,7 +3377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402315894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.271, y: 0.145, z: 0.5114976}
+  m_LocalPosition: {x: -0.271, y: -0.043, z: 0.5114976}
   m_LocalScale: {x: 0.19, y: 0.08, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4102,10 +4106,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f28d43fa49a533429caf6f0068a2e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APIString: 
-  systemMessage: I will give you 5 float values. All you need to do is return the
-    difference between each value and 5.0. Do not write any other text, I just need
-    5 values as output.
+  APIString: sk-proj-gLOP5R7nLJmGwcRhY3JUT3BlbkFJqPhRAqr5a6MEc8uKdX1r
+  systemMessage: 'Given the user''s hand pressure data compared to the ground truth
+    for each joint in a virtual reality system, provide a succinct, single-sentence
+    recommendation on how the user should adjust their hand pressure for optimal
+    performance. Here''s the data: Joint 1: thumb tip - User Value: 5.2, Ground Truth:
+    5.0 Joint 2: thumb proximal - User Value: 4.8, Ground Truth: 5.0 Joint 3: thumb
+    metacarpal - User Value: 5.1, Ground Truth: 5.0 Joint 4: thumb base - User Value:
+    4.9, Ground Truth: 5.0 Joint 5: index tip - User Value: 4.7, Ground Truth: 5.5
+    Joint 6: index proximal - User Value: 5.0, Ground Truth: 5.5 Joint 7: index metacarpal
+    - User Value: 4.8, Ground Truth: 5.5 Joint 8: middle tip - User Value: 5.2, Ground
+    Truth: 5.0 Joint 9: middle proximal - User Value: 5.3, Ground Truth: 5.0 Joint
+    10: middle metacarpal - User Value: 5.1, Ground Truth: 5.0 Joint 11: ring tip
+    - User Value: 4.5, Ground Truth: 4.0 Joint 12: ring proximal - User Value: 4.2,
+    Ground Truth: 4.0 Joint 13: ring metacarpal - User Value: 4.0, Ground Truth:
+    4.0 Joint 14: pinky tip - User Value: 3.5, Ground Truth: 3.0 Joint 15: proximal
+    pinky - User Value: 3.2, Ground Truth: 3.0 Joint 16: metacarpal pinky - User
+    Value: 3.0, Ground Truth: 3.0 Joint 17: left palm - User Value: 6.0, Ground Truth:
+    6.5 Joint 18: center palm - User Value: 6.3, Ground Truth: 6.5 Joint 19: bottom
+    left palm - User Value: 6.1, Ground Truth: 6.5 Joint 20: bottom palm - User Value:
+    6.4, Ground Truth: 6.5'
 --- !u!4 &1871831216
 Transform:
   m_ObjectHideFlags: 0
@@ -4359,6 +4379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realtimeNetworkManager: {fileID: 2065773779}
   sensorDataObject: {fileID: 0}
+  recordingTracker: {fileID: 0}
 --- !u!114 &2065773779
 MonoBehaviour:
   m_ObjectHideFlags: 0
